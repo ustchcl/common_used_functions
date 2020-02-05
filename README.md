@@ -1,6 +1,4 @@
 # common_used_functions
-
-A new Flutter package project.
 实现了大部分除`Object`的[ramda.js](ramdajs.com)的函数。  
  
 加上一些switch if表达式。和一些基础扩展。  

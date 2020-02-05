@@ -24,4 +24,35 @@ String toUpper(String s) => s.toUpperCase();
 
 String trim(String s) => s.trim();
 
+Iterable<String> splitEveryStr(int n, String text) => text.splitEveryStr(n);
+  
 
+// text utils
+bool isEmpty(String text)
+  => text.isNull || text.isEmpty;
+
+ /// 每隔 x位 加 pattern
+String formatDigitPattern(String text, {int digit = 4, String pattern = ' '}) {
+  assert(text.notNull, "text cant be null");
+  if (isEmpty(text)) {
+    return '';
+  }
+  return text.splitEveryStr(digit).join(pattern);
+}
+
+/// 每隔 x位 加 pattern, 从末尾开始
+String formatDigitPatternEnd(String text, {int digit = 4, String pattern = ' '}) 
+  => formatDigitPattern(text?.reversed, digit: digit, pattern: pattern).reversed;
+
+/// 每隔4位加空格
+String formatSpace4(String text) => formatDigitPattern(text);
+
+/// 每隔3三位加逗号
+/// num 数字或数字字符串。int型。
+String formatComma3(num number) => formatDigitPatternEnd(number?.toString(), digit: 3, pattern: ',');
+
+/// hideNumber
+String hideNumber(String phoneNum, {int start = 3, int end = 7, String replacement = '****'})
+  => phoneNum?.replaceRange(start, end, replacement);
+
+String reverseStr(String s) => s.reversed;

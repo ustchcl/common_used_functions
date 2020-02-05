@@ -28,5 +28,7 @@ part 'src/relation/extension.dart';
 
 
 part 'src/string/string.dart';
+part 'src/string/extension.dart';
+
 part 'src/base/switch_expression.dart';
 

@@ -285,8 +285,8 @@ Iterable<Iterable<A>> splitEvery<A>(int n, Iterable<A> ia) {
   var result = Iterable.empty();
   var it = ia.clone;
   while (it.length > 0) {
-    result = result.followedBy(of(it.take(n)));
-    it = it.skip(n);
+    result = result.followedBy(of(it.take(_n)));
+    it = it.skip(_n);
   }
   return result;
 }

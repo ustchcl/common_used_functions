@@ -57,9 +57,9 @@ Fn0<Future<A>> series<A>(Fn0<Future<A>> f, [bool queue = false]) {
   var g = () async {
     if (running) {
       if (!queue) {
-        return Future.error("The progress is running");
+        return Future.error("The function is running");
       } else {
-        var c= new Completer();
+        var c = new Completer();
         callbacks.add(c.complete);
         await c.future;
       }
@@ -91,3 +91,13 @@ Curry3<A, B, C, D, E> curry3<A, B, C, D, E>(Fn4<A, B, C, D, E> f) {
   return (A a) => (B b) => (C c) => (D d) => f(a, b, c, d);
 }
 
+// wrap
+Fn0<T> wrap<T>(T t) => () => t;
+
+Fn0<T> wrap1<A, T>(Fn1<A, T> f, A a) => () => f(a);
+
+Fn0<T> wrap2<A, B, T>(Fn2<A, B, T> f, A a, B b) => () => f(a, b);
+
+Fn0<T> wrap3<A, B, C, T>(Fn3<A, B, C, T> f, A a, B b, C c) => () => f(a, b, c);
+
+Fn0<T> wrap4<A, B, C, D, T>(Fn4<A, B, C, D, T> f, A a, B b, C c, D d) => () => f(a, b, c, d);

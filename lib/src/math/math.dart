@@ -23,31 +23,30 @@ Fn1<double, double> multiplyfc(num v1) => (num v2) => v1 * v2.toDouble();
 double divide(num v1, num v2) => v1 / v2;
 Fn1<num, num> dividec(num v1) => (num v2) => v1 / v2;
 
-// Option<double> mean(List<num> arr) {
-//   if (arr.length == 0) {
-//     return None<double>();
-//   } else {
-//     return option<double>(sum(arr) / arr.length);
-//   }
-// }
+Option<double> mean(List<num> arr) {
+  if (arr.length == 0) {
+    return None<double>();
+  } else {
+    return Some<double>(sum(arr) / arr.length);
+  }
+}
 
-// Option<double> median(List<num> arr) {
-//   if (arr.length == 0) {
-//     return None<double>();
-//   } else {
-//     arr.sort();
-//     if (arr.length % 2 == 0) {
-//       var indexL = (arr.length - 1) ~/ 2;
-//       var indexR = arr.length ~/ 2;
-//       var value = (arr[indexL] + arr[indexR]) / 2;
-//       return option(value);
-
-//     } else {
-//       var index = (arr.length - 1) ~/ 2;
-//       return option(arr[index].toDouble());
-//     }
-//   }
-// }
+Option<double> median(List<num> arr) {
+  if (arr.length == 0) {
+    return None<double>();
+  } else {
+    arr.sort();
+    if (arr.length % 2 == 0) {
+      var indexL = (arr.length - 1) ~/ 2;
+      var indexR = arr.length ~/ 2;
+      var value = (arr[indexL] + arr[indexR]) / 2;
+      return Some(value);
+    } else {
+      var index = (arr.length - 1) ~/ 2;
+      return Some(arr[index].toDouble());
+    }
+  }
+}
 
 double sum(List<num> arr) => arr.fold(0, addf);
 

@@ -11,7 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  tuple: ^1.0.3
+  dartz: ^0.8.9 #0.9 暂时没有文档，先不使用
 
 dev_dependencies:
   flutter_test:

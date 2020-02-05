@@ -3,9 +3,7 @@ library common_used_functions;
 import 'dart:async';
 import 'dart:math';
 
-import 'package:flutter/physics.dart';
-import 'package:tuple/tuple.dart';
-
+import 'package:dartz/dartz.dart';
 
 part 'src/types/types.dart';
 

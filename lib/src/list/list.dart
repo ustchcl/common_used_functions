@@ -124,7 +124,7 @@ Iterable<Iterable<A>> groupWith<A>(Fn2<A, A, bool> f, Iterable<A> ia) {
 
 A head<A>(Iterable<A> ia) => ia.first;
 
-A safeHead<A>(Iterable<A> ia) => ia.first;
+Option<A> safeHead<A>(Iterable<A> ia) => ia.length == 0 ? None<A>() : Some(ia.first);
 
 bool includes<A>(A a, Iterable<A> ia) => ia.contains(a);
 
@@ -153,7 +153,7 @@ String join<A>(String separator, Iterable<A> ia)
   => ia.join(separator);
 
 A last<A>(Iterable<A> ia) => ia.last;
-A safeLast<A>(Iterable<A> ia) => ia.last;
+Option<A> safeLast<A>(Iterable<A> ia) => ia.length == 0 ? None<A>() : Some(ia.last);
 
 int lastIndexOf<A>(A a, Iterable<A> ia) 
   => ia.toList().lastIndexOf(a);
@@ -168,7 +168,7 @@ Tuple2<A, List<A>> mapAccum<A, B>(
   A initial,
   Iterable<B> ib
 ) {
-  var result = scan((a, b) => f(Tuple2(a, b)).item1, initial, ib);
+  var result = scan((a, b) => f(Tuple2(a, b)).value1, initial, ib);
   return Tuple2(result.last, result.tail);
 }
 
@@ -177,7 +177,7 @@ Tuple2<A, List<A>> mapAccumRight<A, B>(
   A initial,
   Iterable<B> ib
 ) {
-  var result = scan((a, b) => f(Tuple2(a, b)).item1, initial, ib.toList().reversed);
+  var result = scan((a, b) => f(Tuple2(a, b)).value1, initial, ib.toList().reversed);
   return Tuple2(result.last, result.tail);
 }
 

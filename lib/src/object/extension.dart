@@ -1,7 +1,7 @@
 part of common_used_functions;
 
 extension ObjectExtension<A> on A {
-  // Option<A> toOption() => option(this);
+  Option<A> toOption() => this.isNull ? None<A>() : Some(this);
 
   bool get isNull => this == null;
   bool get notNull => this != null;
